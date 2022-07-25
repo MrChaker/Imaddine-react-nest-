@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 type PropsType = {
     text: string;
     link?: string;
@@ -10,17 +10,19 @@ type PropsType = {
     style: string;
 };
 const NavEl = (props: PropsType) => {
-    const router = useRouter();
+    const { pathname, push } = useRouter();
     return (
-        <li>
-            <Link href={`${props.link || "#"}`}>
-                <a
-                    className={`${props.style} ${
-                        router.pathname === props.link ? props.activeStyle : ""
-                    }`}>
-                    {props.text}
-                </a>
-            </Link>
+        <li className="cursor-pointer">
+            <div
+                onClick={async () => {
+                    await push(props.link || "#");
+                }}
+                className={`${props.style} ${
+                    pathname === props.link ? props.activeStyle : ""
+                } `}
+                data-testid={props.text}>
+                {props.text}
+            </div>
         </li>
     );
 };

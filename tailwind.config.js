@@ -6,13 +6,16 @@ module.exports = {
             colors: {
                 red: { 1: "#C91414", 2: "#F44444", 3: "#112a77" },
                 light: { 1: "#FFFFFF" },
-                dark: { 1: "#07040F", 2: "#242424" },
+                dark: { 1: "#07040F", 2: "rgb(16, 11, 30)" },
             },
             fontFamily: {
                 main: "'Tajawal', sans-serif",
             },
         },
-        boxShadow: {},
+        boxShadow: {
+            dark: "2px 2px 8px #00000050",
+            light: "2px 2px 8px #ffffff25",
+        },
         dropShadow: {},
         screens: {
             mb: "390px",
