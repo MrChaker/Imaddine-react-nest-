@@ -1,8 +1,7 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import NavBar from "../components/general/NavBar";
 import NavEl from "../components/general/NavEl";
 import mockRouter from "next-router-mock";
-import { NextRouter } from "next/router";
 
 jest.mock("next/router", () => require("next-router-mock"));
 
@@ -41,5 +40,15 @@ describe("testing NavBar", () => {
         expect(nav.style.background).toBe("transparent");
         fireEvent.scroll(window, { target: { scrollY: 100 } });
         expect(nav.style.background == "transparent").toBeFalsy();
+    });
+    test("menu on small screen", () => {
+        const menuBtn = screen.getByRole("menuBtn");
+        const menu = screen.getByRole("menu");
+        const exitBtn = screen.getByRole("exitBtn");
+        expect(menu).toHaveClass("-translate-x-full");
+        fireEvent.click(menuBtn);
+        expect(menu).toHaveClass("translate-x-0");
+        fireEvent.click(exitBtn);
+        expect(menu).toHaveClass("-translate-x-full");
     });
 });

@@ -18,11 +18,13 @@ const Menu = ({
     };
     return (
         <menu
-            className={`flex md:hidden items-start justify-between min-h-screen z-50 p-4 fixed left-0 top-0 w-2/3 mb:w-1/2 sm:w-1/4  ${
+            role="menu"
+            className={`flex sm:hidden items-start justify-between min-h-screen z-50 p-4 fixed left-0 top-0 w-2/3 mb:w-1/2 sm:w-1/4  ${
                 !menu ? "-translate-x-full" : "translate-x-0"
             }  transition-transform bg-black text-white `}>
             <div>{children}</div>
             <BsX
+                role="exitBtn"
                 className="block text-red-1 cursor-pointer text-2xl"
                 onClick={() => {
                     setMenu(false), remount();

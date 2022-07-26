@@ -28,12 +28,13 @@ const NavBar = (props: PropsType) => {
             <Link href="/">
                 <a> {props.logo}</a>
             </Link>
-            <ul className=" justify-center flex-row-reverse gap-6 hidden md:flex">
+            <ul className=" justify-center flex-row-reverse gap-6 hidden sm:flex">
                 {props.children}
             </ul>
             <div className=" flex justify-center flex-row gap-2">
                 <HiMenuAlt1
-                    className="block md:hidden cursor-pointer"
+                    role="menuBtn"
+                    className="block sm:hidden cursor-pointer"
                     onClick={() => setMenu(true)}
                 />
                 {props.extra}

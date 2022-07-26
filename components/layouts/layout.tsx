@@ -40,7 +40,7 @@ export const Layout: NextPage<{ children: React.ReactNode }> = ({
                 />
             </NavBar>
             <div
-                className={`pt-24 min-h-screen ${sharedStyle} relative overflow-clip`}>
+                className={`pt-24 min-h-[300vh] ${sharedStyle} relative overflow-clip`}>
                 {children}
             </div>
         </>
